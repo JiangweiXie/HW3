@@ -1,6 +1,6 @@
 import sys
 import os
-import urllib
+import urllib.request
 import tarfile
 import hashlib
 
@@ -9,7 +9,7 @@ def download_spark():
     spark_url = "http://eecs.berkeley.edu/~jegonzal/cs186_spark.tar.bz2"
     if not os.path.exists("cs186_spark.tar.bz2"):
         print("Downloading Spark")
-        resp = urllib.urlopen(spark_url)
+        resp = urllib.request.urlopen(spark_url)
         output = open('cs186_spark.tar.bz2','wb')
         block_len = 524288
         buf = resp.read(block_len)
